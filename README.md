@@ -1,5 +1,14 @@
 # publications
 
+
+![Screenshot 2023-06-05 152128](https://github.com/Revenant2909/Revenant2909/assets/101965527/e717346d-a1cb-44ca-9145-d746d043d61c)
+
+
+
+![Screenshot 2023-06-05 152203](https://github.com/Revenant2909/Revenant2909/assets/101965527/8cb119db-1c8b-44ee-aff9-835a4f61e7fd)
+
+
+
 ![Screenshot 2023-06-05 145711](https://github.com/Revenant2909/Revenant2909/assets/101965527/19899b8b-fd44-435b-9ab3-d607c8511b5d)
 
 
