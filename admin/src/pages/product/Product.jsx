@@ -9,11 +9,13 @@ import { Publish } from "@mui/icons-material";
 export default function Product() {
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
-  const [pStats, setPStats] = useState([]);
-  const product = useSelector((state)=>state.product.products[0]);
-  // const product = useSelector((state) =>
-  //   state.product.products.find((product) => product._id === productId)
-  // );
+  // const [pStats, setPStats] = useState([]);
+  // const product = useSelector((state)=>state.product.products[0]);
+  const product = useSelector((state) =>
+    state.product.products.find((item) => item.id === productId)
+    );
+  
+    console.log(product);
 
   const MONTHS = useMemo(
     () => [
@@ -56,35 +58,10 @@ export default function Product() {
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">Update Book</h1>
         <Link to="/newproduct">
           <button className="productAddButton">Create</button>
         </Link>
-      </div>
-      <div className="productTop">
-        <div className="productTopLeft">
-          <Chart data={pStats} dataKey="Sales" title="Sales Performance" />
-        </div>
-        <div className="productTopRight">
-          <div className="productInfoTop">
-            <img src={product.img} alt="" className="productInfoImg" />
-            <span className="productName">{product.title}</span>
-          </div>
-          <div className="productInfoBottom">
-            <div className="productInfoItem">
-              <span className="productInfoKey">id:</span>
-              <span className="productInfoValue">{product.id}</span>
-            </div>
-            <div className="productInfoItem">
-              <span className="productInfoKey">sales:</span>
-              <span className="productInfoValue">5123</span>
-            </div>
-            <div className="productInfoItem">
-              <span className="productInfoKey">in stock:</span>
-              <span className="productInfoValue">{product.inStock}</span>
-            </div>
-          </div>
-        </div>
       </div>
       <div className="productBottom">
         <form className="productForm">

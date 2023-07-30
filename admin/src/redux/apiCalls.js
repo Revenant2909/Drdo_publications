@@ -1,7 +1,7 @@
 import { publicRequest, userRequest } from "../requestMethods";
 import { addProductFailure, addProductStart, addProductSuccess, deleteProductFailure, deleteProductStart, deleteProductSuccess, getProductFailure, getProductStart, getProductSuccess, updateProductFailure, updateProductStart, updateProductSuccess } from "./productRedux";
 import { getUsersFailure, getUsersStart, getUsersSuccess, loginFailure, loginStart, loginSuccess } from "./userRedux"
-
+import {getOrderStart,getOrderSuccess,getOrderFailure,deleteOrderStart,deleteOrderSuccess,deleteOrderFailure} from "./orderRedux";
 
 export const login = async (dispatch,user) =>{
     dispatch(loginStart());
@@ -84,9 +84,37 @@ export const getUsers = async (dispatch) =>{
 export const deleteUser = async (dispatch) =>{
     dispatch(getUsersStart());
     try {
-        const res = await publicRequest.get("/users");
+        const res = await publicRequest.delete("/users");
         dispatch(getUsersSuccess(res.data));
     } catch (err) {
         dispatch(getUsersFailure());
     };
 };
+
+//Get Orders
+export const getOrders = async (dispatch) =>{
+    dispatch(getOrderStart());
+    try {
+        const res = await publicRequest.get("/orders/");
+        dispatch(getOrderSuccess(res.data));
+    } catch (err) {
+        dispatch(getOrderFailure());
+    };
+};
+
+//Delete Order
+
+export const deleteOrder = async (dispatch) =>{
+    dispatch(deleteOrderStart());
+    try {
+        const res = await publicRequest.get("/orders");
+        dispatch(deleteOrderSuccess(res.data));
+    } catch (err) {
+        dispatch(deleteOrderFailure());
+    };
+};
+
+
+
+
+

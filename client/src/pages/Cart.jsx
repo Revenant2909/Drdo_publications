@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NewsLetter from '../components/NewsLetter';
 
 import { Add, Remove } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 // import { Link, useHistory } from 'react-router-dom';
 
 const Container = styled.div`
@@ -147,8 +148,8 @@ const Button = styled.button`
 
 const Cart = () => {
    
-    // const cart = useSelector(state=>state.cart);
-    const cart = useState([]);
+    const cart = useSelector(state=>state.cart);
+    // const cart = useState([]);
     // const history = useHistory();
 
 
@@ -156,21 +157,21 @@ const Cart = () => {
   return (
     <Container>
             <Wrapper>
-               <Title>YOUR BAG</Title> 
+               <Title>YOUR CART</Title> 
                <Top>
              
                 <TopButton>CONTINUE SHOPPING</TopButton>
              
                 <TopTexts>
-                    <TopText>Shopping Bag ({cart.quantity}) </TopText>
+                    {/* <TopText>Shopping Bag ({cart.quantity}) </TopText>
                   
-                    <TopText>Your Wishlist</TopText>
+                    <TopText>Your Wishlist</TopText> */}
                   
                 </TopTexts>
                </Top>
                <Bottom>
                 <Info>
-                    {/* {cart.products.map((product)=>(
+                    {cart.books.map((product)=>(
                         <>
                         <Product>
                         <ProductDetail>
@@ -178,45 +179,46 @@ const Cart = () => {
                             <Details>
                                 <ProductName><b>Product:</b>{product.title}</ProductName>
                                 <ProductId><b>Id:</b> {product._id}</ProductId>
-                                <ProductColor color={product.color}></ProductColor>
-                                <ProductSize><b>Size:</b> {product.size} </ProductSize>
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
                             <ProductAmountContainer>
                                <Add/>
-                               {/* <ProductAmount>{product.quantity}</ProductAmount> */}
-                               {/* <ProductAmount>quantity </ProductAmount>
-                               <Remove/> 
-                            </ProductAmountContainer> */}
-                            {/* <ProductPrice>Rs. {product.price*product.quantity}</ProductPrice> */}
-                            {/* <ProductPrice>Rs. product price</ProductPrice>
-                        </PriceDetail>
-                    </Product>
-                    <Hr/>
-                    </> */}
-                 {/* ))
-                    } */} 
-                     <Product>
-                        <ProductDetail>
-                            <Image src= "img" />
-                            <Details>
-                                <ProductName><b>Product:</b>title</ProductName>
-                                <ProductId><b>Id:</b> product id</ProductId>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                               <Add/>
-                               {/* <ProductAmount>{product.quantity}</ProductAmount> */}
+                               <ProductAmount>{product.quantity}</ProductAmount>
                                <ProductAmount>quantity </ProductAmount>
                                <Remove/> 
                             </ProductAmountContainer>
-                            {/* <ProductPrice>Rs. {product.price*product.quantity}</ProductPrice> */}
+                            <ProductPrice>Rs. {product.price*product.quantity}</ProductPrice>
                             <ProductPrice>Rs. product price</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    <Hr/>
+                    </>
+                 ))
+                    } 
+                     {/* <Product>
+                        <ProductDetail>
+                            <Image src= "img" />
+                            <Details>
+                                <ProductName><b>Book:</b>title</ProductName>
+                                <ProductId><b>Id:</b> Book id</ProductId>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                               <Add/>
+                               <ProductAmount>{book.quantity}</ProductAmount>
+                               <ProductAmount>quantity </ProductAmount>
+                               <Remove/> 
+                            </ProductAmountContainer>
+                             <ProductPrice>Rs. {product.price*product.quantity}</ProductPrice>
+                            <ProductPrice>Rs. book price</ProductPrice>
+                        </PriceDetail>
+                    </Product> */}
                 </Info>
+
+
+
                 <Summary>
                     <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                     <SummaryItem>
@@ -236,8 +238,7 @@ const Cart = () => {
                         <SummaryItemText> Total</SummaryItemText>
                         <SummaryItemPrice>Rs. total </SummaryItemPrice>
                     </SummaryItem>
-                    <Button>CHECKOUT NOW</Button>
-                    
+                    <Button>PLACE ORDER</Button>
                 </Summary>
                </Bottom>
             </Wrapper>

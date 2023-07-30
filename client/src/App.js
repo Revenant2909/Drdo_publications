@@ -48,7 +48,7 @@ function App() {
           element: <Cart />,
         },
         {
-          path: "/book/:id",
+          path: "/books/find/:id",
           element: <Product />,
         },
       ],

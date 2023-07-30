@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../drdo_logo_0.png';
-import { Search } from '@mui/icons-material';
+import { Search , Person, ShoppingCartOutlined  } from '@mui/icons-material';
+import { Badge } from '@mui/material'
+import { useSelector } from 'react-redux';
 
 
 const Container = styled.div`
@@ -70,15 +72,52 @@ const ListItem = styled.li`
     align-items: center;
     cursor: pointer;
 `;
+const UserDetails = styled.div`
+    display: flex;
+
+`;
+const UserInfoIcons = styled.div`
+    margin-left: 10px;
+    cursor: pointer;
+`;
+const LeftContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 const Navbar = () => {
+    const user = useSelector(state => state.user.currentUser);
+    // const quantity = useSelector(state=>state.cart.quantity);
+    const quantity = 3;
+    
+    const handleLogout = () =>{
+        localStorage.removeItem("persist:root");
+        window.location.reload(false);
+        console.log("Logged out");
+    }
   return (
     <Container>
         <TopContainer>
         <TopLogo src={logo}/>
+        <LeftContainer>
+
         <SearchContainer>
         <NavSearch placeholder='Search'/>
            <SearchIcon> <Search/> </SearchIcon> 
         </SearchContainer>
+        <UserDetails> 
+        { user ?
+            <UserInfoIcons>
+        <Badge badgeContent={quantity}>
+            <ShoppingCartOutlined />
+            </Badge>
+        </UserInfoIcons>
+        : <UserInfoIcons></UserInfoIcons>}
+        <UserInfoIcons>
+            <Person/>
+        </UserInfoIcons>
+        </UserDetails>
+        </LeftContainer>
         </TopContainer>
         <Hr/>
         <BottomContainer>

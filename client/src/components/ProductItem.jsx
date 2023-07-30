@@ -76,7 +76,7 @@ const ProductItem = () => {
     <Container>
             
          { books.map((item)=>(
-          
+            <Link to={`/books/find/`+item.id} >
             <Product>
             <ProductLeft>
                 <ProductImage src={"./upload/" + item.image} alt="error"/>
@@ -90,7 +90,7 @@ const ProductItem = () => {
                 <View href={item.path}>View pdf</View>
             </ProductRight>
             </Product>
-         
+            </Link>
          ))}   
         
 

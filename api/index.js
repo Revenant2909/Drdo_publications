@@ -3,6 +3,7 @@ import cors from "cors";
 import bookRoutes from "./routes/books.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
+import orderRoutes from "./routes/orders.js";
 import multer from "multer";
 const app = express();
 
@@ -41,7 +42,7 @@ app.post("/api/upload", cpUpload , async (req,res)=>{
 app.use("/api/books/",bookRoutes);
 app.use("/api/auth/",authRoutes);
 app.use("/api/users/",userRoutes);
-
+app.use("/api/orders/",orderRoutes);
 
 
 

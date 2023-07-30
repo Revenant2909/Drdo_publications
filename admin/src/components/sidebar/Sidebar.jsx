@@ -35,13 +35,13 @@ export default function Sidebar() {
                             Users
                         </li>
                         </Link>
-                        <Link to="/products" className='link'>
+                        <Link to="/books/" className='link'>
                         <li className="sidebarListItem">
                             <PlayCircleOutline className='sidebarIcon'/>
                             Publications
                         </li>
                         </Link>
-                        <Link to="/lists" className='link'>
+                        <Link to="/orders" className='link'>
                         <li className="sidebarListItem">
                             <ListAltOutlined className='sidebarIcon'/>
                             Orders

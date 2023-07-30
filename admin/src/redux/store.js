@@ -12,6 +12,7 @@ import {
 } from "redux-persist"
 import storage from "redux-persist/lib/storage";
 import productReducer from "./productRedux";
+import orderReducer from "./orderRedux";
 
 
 const persistConfig = {
@@ -20,7 +21,7 @@ const persistConfig = {
     storage,
 };
  
-const rootReducer = combineReducers({ user: userReducer, product: productReducer});
+const rootReducer = combineReducers({ user: userReducer, product: productReducer, order: orderReducer});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

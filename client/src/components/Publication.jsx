@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Add, Remove } from '@mui/icons-material';
+import { addBook } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
+import { publicRequest } from '../requestMethods';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Container = styled.div`
@@ -135,10 +140,24 @@ const Available = styled.span`
 `;
 
 const Publication = () => {
-   
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const id = location.pathname.split("/")[2];
+    const [book, setBook] = useState([]);
     const [quantity, setQuantity] = useState(1);
 
-
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get("/books/find/"+id);
+                console.log(res.data);
+                setBook(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        getProduct();
+    }, [id]);
     const handleQuantity = (type) => {
         if (type === "dec") {
             quantity > 1 && setQuantity(quantity - 1);
@@ -149,22 +168,21 @@ const Publication = () => {
     }
 
     const handleClick = () => {
-
+        addBook({...book,quantity});
     }
     return (
         <Container>
-           
             <Wrapper>
                 <ImgContainer>
-                    <Image src="https://i.ibb.co/FHrjwfQ/book-covers-big-2019101610.jpg" />
+                    <Image src={"./upload/"} alt='error'/>
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Infrared Signatures, Sensors and Technologies </Title>
+                    <Title>{book.title} </Title>
                     <Author>
-                    <b>Author </b> : Kamal Nain Chopra
+                    <b>Author </b> : {book.author}
                     </Author>
-                    <Year><b> Year </b> : 2023</Year>
-                    <Price>₹ 350</Price>
+                    <Year><b> Year </b> : {book.year}</Year>
+                    <Price>₹ {book.price}</Price>
                     <AddContainer>
                         <AmountContainer>
                             <Remove onClick={() => handleQuantity("dec")} />
@@ -181,8 +199,8 @@ const Publication = () => {
                         Free standard delivery on all orders and free return for all 
                         qualifying orders within <b>14 days of your order delivery date.</b>
                          Visit our Return Policy for more information.<br/><br/><br/>
-                        For any queries, please contact Customer Service at 080-35353535
-                         or via customercareindia@drdo.com .
+                        For any queries, please contact Customer Service at 0000000000
+                         or via customercareindia@drdo.com.
                             </ShippingAuthor>
                         </ShippingDetails>
                 </InfoContainer>

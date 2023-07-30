@@ -26,7 +26,7 @@ export default function NewProduct() {
        const imgpath = res.data.uploadedImg;
        const pdfpath = res.data.uploadedFile;
        const book = { ...inputs, image: imgpath, path: pdfpath };
-       console.log(book);
+      //  console.log(book);
      const res2 =  await publicRequest.post("/books",book);
     //  console.log(res2.data);
 }
