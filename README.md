@@ -1,4 +1,4 @@
-# publications
+# Hello! This is a sample of the work that I did as a full stack developer intern at DESIDOC, DRDO. From(June 23 - August 23)
 
 
 ![Screenshot 2023-06-05 152128](https://github.com/Revenant2909/Revenant2909/assets/101965527/e717346d-a1cb-44ca-9145-d746d043d61c)
