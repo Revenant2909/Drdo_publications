@@ -9,9 +9,6 @@
 
 
 
-![Screenshot 2023-06-05 145711](https://github.com/Revenant2909/Revenant2909/assets/101965527/19899b8b-fd44-435b-9ab3-d607c8511b5d)
-
-
 ![Screenshot 2023-06-05 145802](https://github.com/Revenant2909/Revenant2909/assets/101965527/6c995f8f-9b1a-4049-b3be-7c46ef90b22d)
 
 
